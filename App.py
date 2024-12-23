@@ -3,6 +3,8 @@ import random
 import json
 import nltk
 nltk.download('punkt_tab')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 from nltk.stem import WordNetLemmatizer
 import numpy as np
 from tensorflow.keras.models import load_model  # type: ignore
