@@ -12,8 +12,9 @@ import os
 lemmatizer = WordNetLemmatizer()
 
 # Load the intents file
-with open('C:\\Users\\Om\\Desktop\\chatbot\\intents.json', 'r') as file:
+with open('intents.json', 'r') as file:
     intents_data = json.load(file)
+
 
 # Load the words, classes, and model
 words = pickle.load(open('words.pkl', 'rb'))
