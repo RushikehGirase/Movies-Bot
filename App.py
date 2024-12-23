@@ -2,6 +2,7 @@ import streamlit as st
 import random
 import json
 import nltk
+nltk.download('punkt_tab')
 from nltk.stem import WordNetLemmatizer
 import numpy as np
 from tensorflow.keras.models import load_model  # type: ignore
