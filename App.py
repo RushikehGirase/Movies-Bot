@@ -6,6 +6,7 @@ from nltk.stem import WordNetLemmatizer
 import numpy as np
 from tensorflow.keras.models import load_model  # type: ignore
 import pickle
+import os
 
 # Initialize the lemmatizer
 lemmatizer = WordNetLemmatizer()
