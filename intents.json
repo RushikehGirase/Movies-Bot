@@ -1,0 +1,100 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi there", "Hello", "Hey", "Hi", "Good morning", "Good evening"],
+      "responses": ["Hello! How can I assist you with movies today?", "Hi there! What movie are you looking for?", "Hey! Ready to explore some movies?"],
+      "context": [""]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "Goodbye", "See you later", "Catch you later", "I’m leaving"],
+      "responses": ["Goodbye! Hope to assist you with movies again soon.", "See you later!", "Take care!"],
+      "context": [""]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "Thanks a lot", "Much appreciated", "I’m grateful"],
+      "responses": ["You're welcome!", "Happy to help!", "Anytime!"],
+      "context": [""]
+    },
+    {
+      "tag": "search_movie",
+      "patterns": ["Search for a movie", "Find a movie", "Look up a movie", "Can you find a movie for me?", "Help me locate a movie"],
+      "responses": ["Sure! Please provide the movie name.", "What movie would you like to search for?"],
+      "context": ["movie_search"]
+    },
+    {
+      "tag": "movie_details",
+      "patterns": ["Tell me about {movie_name}", "Details for {movie_name}", "Information on {movie_name}", "What's the plot of {movie_name}?"],
+      "responses": ["Here are the details for {movie_name}:", "{movie_name} is a must-watch!"],
+      "context": ["movie_info"]
+    },
+    {
+      "tag": "movie_year",
+      "patterns": ["Movies from {year}", "Show me movies released in {year}", "Find movies from the year {year}", "List movies from {year}"],
+      "responses": ["Here are some movies released in {year}: \n- Inception (2010)\n- The Dark Knight (2008)\n- Parasite (2019)"],
+      "context": ["movie_year"]
+    },
+    {
+      "tag": "movie_actor",
+      "patterns": ["Movies by {actor}", "Show me movies featuring {actor}", "Find movies with {actor}", "List movies with {actor} in them"],
+      "responses": ["Here are some movies featuring {actor}: \n- Iron Man (Robert Downey Jr.)\n- Mission Impossible (Tom Cruise)\n- Joker (Joaquin Phoenix)"],
+      "context": ["movie_actor"]
+    },
+    {
+      "tag": "movie_genre",
+      "patterns": ["Show me action movies", "Find romance movies", "List horror films", "Can you recommend comedy movies?", "Suggest thriller movies"],
+      "responses": ["Here are some {genre} movies: \n- Action: Mad Max: Fury Road\n- Romance: The Notebook\n- Horror: Get Out"],
+      "context": ["movie_genre"]
+    },
+    {
+      "tag": "hollywood_movies",
+      "patterns": ["Hollywood movies", "List some Hollywood movies", "Show me Hollywood films", "Popular Hollywood movies"],
+      "responses": ["Here are some popular Hollywood movies: \n- Avengers: Endgame\n- Titanic\n- The Matrix"],
+      "context": ["hollywood"]
+    },
+    {
+      "tag": "bollywood_movies",
+      "patterns": ["Bollywood movies", "List some Bollywood movies", "Show me Bollywood films", "Popular Bollywood movies"],
+      "responses": ["Here are some popular Bollywood movies: \n- Dangal\n- 3 Idiots\n- Bajrangi Bhaijaan"],
+      "context": ["bollywood"]
+    },
+    {
+      "tag": "south_indian_movies",
+      "patterns": ["South Indian movies", "List some South Indian movies", "Show me South Indian films", "Popular South Indian movies"],
+      "responses": ["Here are some popular South Indian movies: \n- Baahubali\n- RRR\n- Pushpa"],
+      "context": ["south_indian"]
+    },
+    {
+      "tag": "korean_movies",
+      "patterns": ["Korean movies", "List some Korean movies", "Show me Korean films", "Popular Korean movies"],
+      "responses": ["Here are some popular Korean movies: \n- Parasite\n- Train to Busan\n- Oldboy"],
+      "context": ["korean"]
+    },
+    {
+      "tag": "trending_movies",
+      "patterns": ["Trending movies", "What are the top trending movies?", "List the trending movies now", "Show me the hottest movies today"],
+      "responses": ["Here are the top trending movies right now: \n- Oppenheimer\n- Barbie\n- The Marvels"],
+      "context": ["trending"]
+    },
+    {
+      "tag": "movie_director",
+      "patterns": ["Movies directed by {director}", "List films by {director}", "What movies has {director} made?"],
+      "responses": ["Here are some movies directed by {director}: \n- Interstellar (Christopher Nolan)\n- Pulp Fiction (Quentin Tarantino)\n- Schindler's List (Steven Spielberg)"],
+      "context": ["movie_director"]
+    },
+    {
+      "tag": "upcoming_movies",
+      "patterns": ["What are the upcoming movies?", "Tell me about new movie releases", "Any movies coming out soon?"],
+      "responses": ["Here are some upcoming movies: \n- Dune: Part Two\n- The Batman 2\n- Avatar 3"],
+      "context": ["upcoming"]
+    },
+    {
+      "tag": "award_winning_movies",
+      "patterns": ["Award-winning movies", "Show me Oscar winners", "Which movies have won awards recently?"],
+      "responses": ["Here are some award-winning movies: \n- Everything Everywhere All At Once\n- The Shape of Water\n- Nomadland"],
+      "context": ["award_winners"]
+    }
+  ]
+}
