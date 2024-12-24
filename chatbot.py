@@ -8,6 +8,14 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 from keras.models import load_model  # type: ignore
 
+# Import your sections
+
+from home import home_section   # Assuming home.py is present
+from about import about_section  # Assuming about.py is present
+from history import history_section  # Assuming history.py is present
+from socials import socials_section  # Assuming socials.py is present
+
+
 # Suppress TensorFlow warnings
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -78,6 +86,37 @@ def main():
         
         # Display response from the bot
         st.write(f"**Bot:** {response}")
+        # Main function for Streamlit app with navigation
+def main():
+    st.sidebar.title("Navigation")
+    selection = st.sidebar.radio("Go to", ["Home", "About", "Chat History", "Socials"])
+
+    if selection == "Home":
+        home_section()  # Call the home section
+        
+    elif selection == "About":
+        about_section()  # Call the about section
+    
+    elif selection == "Chat History":
+        history_section()  # Call the chat history section
+
+    elif selection == "Socials":
+        socials_section()  # Call the socials section
+
+    # Display the chatbot
+    user_input = st.text_input("You: ", "")
+
+    if user_input:
+        # Predict the class of the message
+        intents = predict_class(user_input)
+        response = get_response(intents, intents_data)
+    
+        # Display response from the bot
+        st.write(f"Bot: {response}")
+
+# Success confirmation message
+    st.write("🎉 The Movie Search Chatbot is running smoothly! No errors detected. 🎉")
+
 
     # Run the app
 if __name__ == "__main__":
