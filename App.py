@@ -1,23 +1,30 @@
 import streamlit as st
+import os
 import random
 import json
-import nltk
-nltk.download('punkt_tab')
-nltk.download('wordnet')
-nltk.download('omw-1.4')
-from nltk.stem import WordNetLemmatizer
-import numpy as np
-from tensorflow.keras.models import load_model  # type: ignore
 import pickle
-import os
+import numpy as np
+import nltk
+from nltk.stem import WordNetLemmatizer
+from keras.models import load_model  # type: ignore
+
+# Import your sections
+
+from home import home_section   # Assuming home.py is present
+from about import about_section  # Assuming about.py is present
+from history import history_section  # Assuming history.py is present
+from socials import socials_section  # Assuming socials.py is present
+
+
+# Suppress TensorFlow warnings
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Initialize the lemmatizer
 lemmatizer = WordNetLemmatizer()
 
-# Load the intents file
-with open('intents.json', 'r') as file:
+# Load the intents JSON file
+with open('C:\\Users\\Om\\Desktop\\chatbot\\intents.json', 'r') as file:
     intents_data = json.load(file)
-
 
 # Load the words, classes, and model
 words = pickle.load(open('words.pkl', 'rb'))
@@ -80,12 +87,43 @@ def main():
         # Display response from the bot
         st.write(f"**Bot:** {response}")
 
-    # Optional: Add information or instructions
+    # Sidebar information
     st.sidebar.title("About the Bot")
     st.sidebar.info(
         "This Movies Bot uses NLP to understand your questions about movies "
         "and provides relevant answers. Type in a question to get started!"
     )
+
+# Main function for Streamlit app with navigation
+def main():
+    st.sidebar.title("Navigation")
+    selection = st.sidebar.radio("Go to", ["Home", "About", "Chat History", "Socials"])
+
+    if selection == "Home":
+        home_section()  # Call the home section
+        
+    elif selection == "About":
+        about_section()  # Call the about section
+    
+    elif selection == "Chat History":
+        history_section()  # Call the chat history section
+
+    elif selection == "Socials":
+        socials_section()  # Call the socials section
+
+    # Display the chatbot
+    user_input = st.text_input("You: ", "")
+
+    if user_input:
+        # Predict the class of the message
+        intents = predict_class(user_input)
+        response = get_response(intents, intents_data)
+    
+        # Display response from the bot
+        st.write(f"Bot: {response}")
+
+# Success confirmation message
+    st.write("🎉 The Movie Search Chatbot is running smoothly! No errors detected. 🎉")
 
 # Run the app
 if __name__ == "__main__":
